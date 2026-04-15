@@ -1,6 +1,8 @@
+import LoginSection from "@/components/LoginSection";
+
 const Login = () => {
     return(
-        <h2>pagina de logins</h2>
+        <LoginSection />
     )
 }
 
