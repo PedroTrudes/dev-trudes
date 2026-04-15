@@ -13,7 +13,7 @@ export const loginRequest = async (data) => {
 }
 
 export const getContacts = async (token) => {
-    const res = await fetch(`${API_URL}/contact`, {
+    const res = await fetch(`${API_URL}/contact/`, {
         headers: {
             Authorization: `Bearer ${token}`
         }

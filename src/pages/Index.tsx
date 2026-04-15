@@ -11,7 +11,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <HeroSection />
+      <HeroSection position={"Fullstack Developer"} isInternal={false} textApresentation={"Criando experiências digitais modernas com código limpo e design inteligente."}/>
       <AboutSection />
       <SkillsSection />
       <ProjectsSection />

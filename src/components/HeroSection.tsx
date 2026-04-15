@@ -1,16 +1,15 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Mail, FolderOpen } from "lucide-react";
+import { ArrowDown, Mail, FolderOpen, House } from "lucide-react";
 
-const HeroSection = () => {
+const HeroSection = ({position, textApresentation, isInternal}) => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Subtle grid */}
+   
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: 'linear-gradient(hsl(0 0% 50%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 50%) 1px, transparent 1px)',
         backgroundSize: '60px 60px'
       }} />
 
-      {/* Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.04]" style={{
         background: 'radial-gradient(circle, hsl(0 0% 100%), transparent 70%)'
       }} />
@@ -22,7 +21,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <p className="text-muted-foreground font-body text-sm tracking-[0.3em] uppercase mb-6">
-            Fullstack Developer
+            {position}
           </p>
         </motion.div>
 
@@ -41,7 +40,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
         >
-          Criando experiências digitais modernas com código limpo e design inteligente.
+          {textApresentation}
         </motion.p>
 
         <motion.div
@@ -50,20 +49,35 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.45, ease: "easeOut" }}
         >
-          <a
-            href="#projects"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-display font-medium text-sm tracking-wide hover-lift"
-          >
-            <FolderOpen size={16} />
-            Ver Projetos
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-border text-foreground font-display font-medium text-sm tracking-wide hover-lift hover:bg-secondary"
-          >
-            <Mail size={16} />
-            Contato
-          </a>
+          {isInternal ? (
+            <>
+              <a
+                  href="/"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-display font-medium text-sm tracking-wide hover-lift"
+                  >
+                  <House size={16} />
+                  Voltar a home
+                </a>
+            </>  
+          ) : ( 
+            <>
+              <a
+                href="#projects"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-display font-medium text-sm tracking-wide hover-lift"
+                >
+                <FolderOpen size={16} />
+                Ver Projetos
+              </a>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-border text-foreground font-display font-medium text-sm tracking-wide hover-lift hover:bg-secondary"
+                >
+                <Mail size={16} />
+                Contato
+              </a>
+            </>
+          )}
+          
         </motion.div>
       </div>
 
